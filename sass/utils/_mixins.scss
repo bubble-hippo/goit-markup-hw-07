@@ -1,0 +1,7 @@
+@mixin transition($type: background-color) {
+  transition: $type $anim-duration $anim-type;
+}
+
+@mixin flex-basis($column: 3) {
+  flex-basis: calc(100% / $column - 2 * $gap * $column);
+}

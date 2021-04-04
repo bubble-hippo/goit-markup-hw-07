@@ -1,0 +1,119 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+  color: $main-cl;
+}
+
+header {
+  position: sticky;
+  top: -1px;
+  z-index: 5;
+
+  background: $white-op100;
+  border-bottom: solid 1px $border-heder;
+}
+
+footer {
+  padding: 57px 0px;
+  background-color: $dgrey-bc;
+}
+
+h1 {
+  margin-bottom: 30px;
+  
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 1.36;
+  text-align: center;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  color: $white-op100;
+}
+
+h2 {
+  margin-bottom: 50px;
+
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.17;
+  text-align: center;
+
+  color: $title-cl;
+}
+
+address {
+  margin-top: 20px;
+  font-style: normal;
+}
+    
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+    
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  width: 1200px;
+  padding-left: $gap;
+  padding-right: $gap;
+  margin-left: auto;
+  margin-right: auto;
+
+  &--header,
+  &--footer {
+    align-items: center;
+  }
+
+  &--hero {
+    flex-direction: column;
+    padding: 200px 252px;
+  }
+
+  &--section {
+    flex-direction: column;
+    padding-top: 94px;
+    padding-bottom: 94px;
+  }
+
+  &--modal {
+    flex-direction: column;
+    padding: 40px;
+    max-width: 528px;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.list {
+  margin: -1*$gap;
+  display: flex;
+  flex-wrap: wrap;
+  
+  &__item {
+    display: inline-block;
+    margin: $gap;
+  }
+}

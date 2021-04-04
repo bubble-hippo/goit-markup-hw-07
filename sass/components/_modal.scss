@@ -1,0 +1,190 @@
+.backdrop {
+  z-index: 10;
+
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $black-op20;
+
+  opacity: 1;
+  visibility: visible;
+
+  @include transition(opacity);
+  @include transition(visibility);
+  
+  &.is-hidden .modal {
+    transform: translate(-50%, -30%) scale(0.9);
+  }
+}
+
+.modal {
+  position: relative;
+  max-width: 528px;
+  min-height: 580px;
+  background-color: $white-op100;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  @include transition(transform);
+
+  h2 {
+    margin-bottom: 0px;
+
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  &__field {
+    margin-top: 9px;
+    display: flex;
+    flex-direction: column;
+  
+    &--policy {
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
+
+  .form-label {
+    font-size: 12px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px 12px 10px 36px;
+    border: 1px solid $form-border;
+
+    &:focus + .modal__icon,
+    &:hover + .modal__icon {
+      fill: $accent-cl;
+    }
+  }
+
+  &__comment {
+    width: 100%;
+    padding: 10px 12px;
+    resize: none;
+    border: 1px solid $form-border;
+    font-size: 12px;
+  }
+
+  &__group {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 12px;
+
+    @include transition(fill);
+  }
+
+  &__input,
+  &__comment {
+    border-radius: 4px;
+    @include transition(border-color);
+
+    &:hover,
+    &:focus {
+      border-color: $accent-cl;
+    }
+  }
+
+  &__policy {
+    display: flex;
+    align-items: center;
+
+    .modal__label {
+      font-size: 14px;
+    }
+
+    .modal__link {
+      display: inline-block;
+      text-decoration: underline;
+      color: $accent-cl;
+      padding: 0;
+    }
+  }
+
+  &__compliance {
+    appearance: none;
+    position: absolute;
+
+    &:checked + .modal__check-box {
+      background-color: $accent-cl;
+      background-image: url(../images/icon-check.svg);
+      background-size: contain;
+      background-origin: border-box;
+      border-color: transparent;
+    }
+    
+    & + .modal__check-box {
+      width: 16px;
+      height: 16px;
+      border: 2px solid $black-op100;
+      border-radius: 2px;
+      
+      margin-right: 12px;
+      
+      @include transition(all);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+
+    width: 30px;
+    height: 30px;
+    border: 1px solid $black-op10;
+    border-radius: 50%;
+    background-color: transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    &:hover .modal__close-icon,
+    &:focus .modal__close-icon {
+      fill: $accent-cl;
+    }
+  }
+
+  &__close-icon {
+    fill: $black-op100;
+    @include transition(fill);
+  }
+
+  .order {
+    margin-top: 30px;
+    box-shadow: 0px 4px 4px $black-op20;
+
+    @include transition();
+    
+    &:focus,
+    &:hover {
+      background-color: $accent-foc;
+    }
+    
+    &--modal {
+      padding-right: auto;
+      padding-left: auto;
+    }
+  }
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}

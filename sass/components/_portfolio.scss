@@ -1,0 +1,116 @@
+.portfolio {
+  &__filters {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__option {
+    border-radius: 4px;
+    
+    &:not(:first-child) {
+      display: inline-block;
+      margin-left: 8px;
+    }
+  }
+
+  &__button {
+    padding: 6px 22px;
+
+    background-color: $lgrey-bc;
+    box-shadow: 0px 3px 1px rgba(255, 255, 255, 0),
+      0px 1px 2px rgba(255, 255, 255, 0), 0px 2px 2px rgba(255, 255, 255, 0);
+    border: none;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.63;
+    text-align: center;
+
+    color: $title-cl;
+
+    @include transition();
+    @include transition(box-shadow);
+    @include transition(color);
+
+    &:focus,
+    &:hover {
+      background-color: $accent-cl;
+      box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
+      border-radius: 4px;
+
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.63;
+      text-align: center;
+
+      color: $white-op100;
+    }
+  }
+
+  &__card-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+
+    background-color: $card-bc;
+    color: $white-op100;
+
+    display: flex;
+    padding: 63px 24px;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transform: translateY(100%);
+    @include transition(opacity);
+    @include transition(transform);
+  }
+
+  .list__item {
+    @include flex-basis()
+    max-width: 370px;
+
+    &--shadowed {
+      @include transition(box-shadow);
+
+      &:hover {
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+          1px 4px 6px rgba(0, 0, 0, 0.16);
+      }
+    }
+
+    &:hover .portfolio__card-text {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  &__thumb {
+    position: relative;  
+    overflow: hidden;
+    height: 294px;
+  }
+
+  &__product {
+    border: solid 1px $border-cl;
+    border-top: none;
+    padding: 20px 24px;
+    flex-grow: 1;
+
+    h3 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 2;
+      letter-spacing: 0.06em;
+
+      color: $title-cl;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.88;
+    }   
+  }
+}

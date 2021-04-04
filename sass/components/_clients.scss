@@ -1,0 +1,44 @@
+.clients {
+  .list__item {
+    @include flex-basis(6)
+    max-width: 270px;
+    border-radius: 4px;
+  }
+
+  &__card {
+    &:focus .cclients__link {
+      border-color: $accent-cl;
+    }
+
+    &:focus .clients__icon {
+      fill: $accent-cl;
+    }
+  }
+  
+  &__link {
+    width: 170px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: solid 1px $company;
+    border-radius: 4px;
+    background-color: transparent;
+
+    @include transition(border-color);
+
+    &:hover {
+      border-color: $accent-cl;
+    }
+
+    &:hover .clients__icon {
+      fill: $accent-cl;
+    }
+  }
+
+  &__icon {
+    fill: $company;
+    @include transition(fill);
+  }
+}

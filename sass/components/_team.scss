@@ -1,0 +1,78 @@
+
+.team {
+  background-color: $lgrey-bc;
+
+  .list__item {
+    @include flex-basis(4)
+    max-width: 270px;
+    background-color: $white-op100;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+      0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 4px 4px;
+  }
+
+  &__profile {
+    padding: 30px 32px;
+
+    h3 {
+      margin-bottom: 10px;
+      
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 1.19;
+      text-align: center;
+
+      color: $title-cl;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.19;
+      text-align: center;
+    }
+  }
+
+  &__socials {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__page-link {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    border-radius: 50%;
+    background-color: transparent;
+    padding: 12px;
+
+    @include transition();
+    @include transition(fill); 
+
+    &:hover {
+      background-color: $accent-cl;
+    }
+
+    &:hover .team__social-icon{
+      fill: $white-op100;
+    }
+  }
+
+  &__social-icon {
+    fill: $company;
+    @include transition(fill);
+  }
+
+  &__contact {
+    @include transition();
+    @include transition(fill);   
+
+    &:focus .team__page_link {
+      background-color: $accent-cl;
+    }
+
+    &:focus .team__social-icon {
+      fill: $white-op100;
+    }
+  }
+}
